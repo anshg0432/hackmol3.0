@@ -17,37 +17,34 @@
             <div class="club-item">
               <h1>Upcoming Events</h1>
                
-              <div class="box"><h2 class="h22">Creative writing held at 25feb</h2></div>
-              <div class="box"><h2 class="h22">Debate contest winner Paras</h2></div>
-              <div class="box"><h2 class="h22">Aman won best speaker award</h2></div>
-              <div class="box"><h2 class="h22">Kasina did awesome</h2></div>
-              <div class="box"><h2 class="h22">We will win this contest</h2></div>
-              <div class="box"><h2 class="h22">Vanshika the best ux/ui designer</h2></div>
-              <div class="box"><h2 class="h22">It was one of hecking work</h2></div>
+              {% for event in events %}
+              <div class="box"><h2 class="h22">{{event.content}}</h2></div>
+              {% endfor %}
              
 
             </div>
             <div class="club-item">
                <h1>Highlights</h1> 
                
-              <div class="box"><h2 class="h22">Creative writing held at 25feb</h2></div>
-              <div class="box"><h2 class="h22">Debate contest winner Paras</h2></div>
-              <div class="box"><h2 class="h22">Aman won best speaker award</h2></div>
-              <div class="box"><h2 class="h22">Kasina did awesome</h2></div>
-              <div class="box"><h2 class="h22">We will win this contest</h2></div>
-              <div class="box"><h2 class="h22">Vanshika the best ux/ui designer</h2></div>
-              <div class="box"><h2 class="h22">It was one of hecking work</h2></div>
+               {% for highlight in highlights %}
+               <div class="box"><h2 class="h22">{{highlight.content}}</h2></div>
+               {% endfor %}
              
             </div>
         </div>
- 
+    <br><br>
+        {% if club_follow.user != user or club_follow.count == 0 %}
 
+        <form method="POST">
+          {% csrf_token %}
+          <input type="hidden" name="title" value="2">
+            <button class="btn btn-primary" type="submit"><h3>Join Club</h3></button>
 
-
-
-
+        </form>
+        {% endif %}
+    <br>
         <footer>
-            <h1>Team:Clubhub<br>
+<!--            <h1>Team:Klubhub<br>-->
 
             
               <div class="btn_wrap">

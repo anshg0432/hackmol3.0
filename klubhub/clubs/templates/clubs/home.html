@@ -4,8 +4,8 @@
 
     <div class="cont">
         <div class="item">
-            <h1 class="bigheading">Welcome to ClubHub</h1>
-            <h3 class="subhead">A place where allyou can know anythingabout clubs of NITJ</h3>
+            <h1 class="bigheading">Welcome to KlubHub</h1>
+            <h3 class="subhead">A place where you can know anything about clubs of NITJ</h3>
         </div>
         <div class="item">
             <img src="{%static 'c.jpeg'%}" class="slide">
@@ -23,20 +23,30 @@
 <div class="my_club_class">
     <br>
         <h1 class="myhead">My Clubs</h1>
-
-
-    <div class="explore-coding-container-1">
-      <div class="explore-coding-item-1">
-        <img src="{%static 'dsc.jpg'%}" class="myclubimage" alt="zeal" style="width:100%">
-      <h1 class="cardd">DSC Club</h1>
-        <p><button class="myclubbutton">Contact</button></p>
-      </div>
-
-      <div class="explore-coding-item-1">
-        <img src="{%static 'zeal.jpg'%}" class="myclubimage" alt="zeal" style="width:100%">
-      <h1 class="cardd">Zeal</h1>
-        <p><button class="myclubbutton">Contact</button></p>
-      </div>
-    </div>
+    {% for club in clubs %}
+    <div class="explore-literature-item-1" style="background-color:#000000;margin-left: 110px;">
+       <img src="{{club.image.url}}" class="myclubimage" alt="zeal" style="width:100%">
+     <h1 class="cardd" style="color:white">{{club.title}}</h1>
+       <p><form method="get" action="../{{club.contact}}">
+            <button class="myclubbutton-1" type="submit">Contact</button>
+        </form></p>
+     </div>
+        {% endfor %}
+    <br><br>
 </div>
-{% endblock content %} 
+{% endblock content %}
+
+<!--    <div class="explore-coding-container-1">-->
+<!--        {% for club in clubs %}-->
+
+<!--        <div class="explore-coding-item-1">-->
+<!--        <img src="{{club.image.url}}" class="myclubimage" alt="zeal" style="width:100%">-->
+<!--        <h1 class="cardd">{{club.title}}</h1>-->
+<!--&lt;!&ndash;        <p><button class="myclubbutton"><a href="">Contact</a></button></p>&ndash;&gt;-->
+<!--        <p><form method="get" action="../{{club.contact}}">-->
+<!--                <button class="myclubbutton-1" type="submit">Contact</button>-->
+<!--            </form></p>-->
+<!--        </div>-->
+<!--      -->
+<!--        {% endfor %}-->
+<!--    </div>-->
