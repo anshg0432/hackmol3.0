@@ -15,6 +15,8 @@ def home(request):
         'clubs': arr
     
     }
+    
+        
     return render(request, 'clubs/home.html',context)
 
 
@@ -39,3 +41,18 @@ def explore(request):
         'clubs': Club.objects.all()
     }
     return render(request, 'clubs/explore.html',context_3)
+
+def clubs_d(request):
+    
+    if request.method == "POST":
+        it = Club_follow()
+        it.user = request.user
+        it.follow_id = int(request.POST['title'])
+        it.save()
+        return redirect('../../home')
+    context_2 = {
+        'events': Event.objects.all(),
+        'highlights': Highlight.objects.all(),
+        'club_follow': Club_follow.objects.all()
+    }
+    return render(request, 'clubs/dsc_club.html',context_2)

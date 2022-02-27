@@ -22,9 +22,10 @@
 <!-- my clubs -->
 <div class="my_club_class">
     <br>
-        <h1 class="myhead">My Clubs</h1>
-    {% for club in clubs %}
-    <div class="explore-literature-item-1" style="background-color:#000000;margin-left: 110px;">
+        {% comment %} <h1 class="myhead">My Clubs</h1>
+        {% for club in clubs %}
+    <div class="explore-literature-item-1">
+        
        <img src="{{club.image.url}}" class="myclubimage" alt="zeal" style="width:100%">
      <h1 class="cardd" style="color:white">{{club.title}}</h1>
        <p><form method="get" action="../{{club.contact}}">
@@ -33,20 +34,21 @@
      </div>
         {% endfor %}
     <br><br>
-</div>
-{% endblock content %}
+</div> {% endcomment %}
 
-<!--    <div class="explore-coding-container-1">-->
-<!--        {% for club in clubs %}-->
+    <h2 style="text-align:center">My Club</h2>
+    <div class="explore-coding-container-1">
+       {% for club in clubs %}
 
-<!--        <div class="explore-coding-item-1">-->
-<!--        <img src="{{club.image.url}}" class="myclubimage" alt="zeal" style="width:100%">-->
-<!--        <h1 class="cardd">{{club.title}}</h1>-->
-<!--&lt;!&ndash;        <p><button class="myclubbutton"><a href="">Contact</a></button></p>&ndash;&gt;-->
-<!--        <p><form method="get" action="../{{club.contact}}">-->
-<!--                <button class="myclubbutton-1" type="submit">Contact</button>-->
-<!--            </form></p>-->
-<!--        </div>-->
-<!--      -->
-<!--        {% endfor %}-->
-<!--    </div>-->
+        <div class="explore-coding-item-1">
+       <img src="{{club.image.url}}" class="myclubimage" alt="zeal" style="width:100%">
+        <h1 class="cardd">{{club.title}}</h1>
+       <p><form method="get" action="../{{club.contact}}">
+               <button class="myclubbutton-1" type="submit">View</button>
+       </form></p>
+       </div>
+
+       {% endfor %}
+       </div>
+  </div>
+  {% endblock content %}
